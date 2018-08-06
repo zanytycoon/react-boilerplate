@@ -14,16 +14,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import AuthPage from 'containers/AuthPage';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
+import AuthRoute from './AuthRoute';
+
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Switch>
+      <AuthRoute exact path="/" component={HomePage} />
+      <Route path="/auth" component={AuthPage} />
+      <Route component={NotFoundPage} />
+    </Switch>
   );
 }
